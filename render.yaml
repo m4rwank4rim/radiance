@@ -1,0 +1,57 @@
+services:
+  - type: web
+    name: radiance-suite
+    runtime: node
+    plan: free
+    region: oregon
+    autoDeploy: true
+    buildCommand: npm ci --include=dev && npm run build
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      # Runtime
+      - key: NODE_ENV
+        value: production
+      - key: APP_URL
+        sync: false
+
+      # Discord
+      - key: DISCORD_BOT_TOKEN
+        sync: false
+      - key: DISCORD_CLIENT_ID
+        sync: false
+      - key: DISCORD_CLIENT_SECRET
+        sync: false
+
+      # Supabase (VITE_* values are inlined at build time, so they must exist
+      # before `npm run build` runs)
+      - key: VITE_SUPABASE_URL
+        sync: false
+      - key: VITE_SUPABASE_ANON_KEY
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+
+      # AI providers
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: GROQ_API_KEY
+        sync: false
+
+      # Optional integrations
+      - key: STRIPE_BUSINESS_PAYMENT_LINK
+        sync: false
+      - key: STRIPE_ENTERPRISE_PAYMENT_LINK
+        sync: false
+      - key: STRIPE_CHECKOUT_BASE_URL
+        sync: false
+      - key: STRIPE_PORTAL_URL
+        sync: false
+      - key: STRIPE_WEBHOOK_SECRET
+        sync: false
+      - key: BILLING_BUSINESS_PRICE_MONTHLY
+        value: "29"
+      - key: BILLING_ENTERPRISE_PRICE_MONTHLY
+        value: "99"
+      - key: VIRUSTOTAL_API_KEY
+        sync: false

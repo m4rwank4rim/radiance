@@ -1,0 +1,17 @@
+Γùç injected env (9) from .env // tip: Γîü auth for agents [www.vestauth.com]
+
+--- Testing v1beta with gemini-1.5-flash ---
+FAILED:
+Message: {"error":{"code":404,"message":"models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.","status":"NOT_FOUND"}}
+
+--- Testing v1beta with models/gemini-1.5-flash ---
+FAILED:
+Message: {"error":{"code":404,"message":"models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.","status":"NOT_FOUND"}}
+
+--- Testing v1 with gemini-1.5-flash ---
+FAILED:
+Message: {"error":{"code":404,"message":"models/gemini-1.5-flash is not found for API version v1, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.","status":"NOT_FOUND"}}
+
+--- Testing v1 with models/gemini-1.5-flash ---
+FAILED:
+Message: {"error":{"code":404,"message":"models/gemini-1.5-flash is not found for API version v1, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.","status":"NOT_FOUND"}}

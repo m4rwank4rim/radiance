@@ -1,0 +1,45 @@
+node : file:///C:/Users
+/Administrator/Desktop/
+zip/test-puter-node.js:
+10
+At line:1 char:1
++ node 
+test-puter-node.js > 
+test-err.txt 2>&1
++ ~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo     
+         : NotSpecifi  
+  ed: (file:///C:/Us   
+ er...uter-node.js:    
+10:String) [], Rem    
+oteException
+    + FullyQualifiedEr 
+   rorId : NativeComm  
+  andError
+ 
+global.navigator = { 
+userAgent: 'Node.js' };
+                 ^
+
+TypeError: Cannot set 
+property navigator of 
+#<Object> which has 
+only a getter
+    at file:///C:/Users
+/Administrator/Desktop/
+zip/test-puter-node.js:
+10:18
+    at ModuleJob.run (n
+ode:internal/modules/es
+m/module_job:430:25)
+    at async onImport.t
+racePromise.__proto__ (
+node:internal/modules/e
+sm/loader:661:26)
+    at async asyncRunEn
+tryPointWithESMLoader (
+node:internal/modules/r
+un_main:101:5)
+
+Node.js v24.14.1

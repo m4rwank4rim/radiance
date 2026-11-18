@@ -1,0 +1,53 @@
+Γùç injected env (9) from .env // tip: Γîü auth for agents [www.vestauth.com]
+Γùç injected env (0) from .env // tip: Γîÿ override existing { override: true }
+≡ƒÆÄΓöéelite-voice: 1491159050401087599
+≡ƒûÑ∩╕ÅΓöédashboard-feedback: 1491159028884307988
+≡ƒô¥Γöéfeedback: 1491159022370553866
+≡ƒ¢á∩╕ÅΓöénexus-support: 1491159013457399880
+≡ƒô£Γöérules: 1491158999771644006
+≡ƒôíΓöébot-status: 1491159003307315331
+≡ƒÅåΓöésuccess-stories: 1491159011763163249
+≡ƒöè 6xualsadist's Channel: 1491167415479042121
+≡ƒÄÖ∩╕ÅΓöéelysium-voice: 1491159034408210433
+≡ƒöè 6xualsadist's Channel: 1491167458180989030
+≡ƒºæΓÇì≡ƒÄ¿Γöécreator-lounge: 1491159042968518737
+≡ƒæÑΓöéstaff-general: 1491159054293270684
+≡ƒöè 6xualsadist's Channel: 1491167492016574508
+≡ƒîƒΓöélumina-hub: 1491159004536377544
+≡ƒöùΓöéapi-showcase: 1491159031841292480
+≡ƒÄ¿Γöécreations: 1491159010496479252
+≡ƒÆíΓöéfeature-requests: 1491159019253923920
+≡ƒöè 6xualsadist's Channel: 1491167570642866297
+≡ƒöè 6xualsadist's Channel: 1491167535645593601
+≡ƒÆ¼Γöégeneral: 1491159005803053096
+≡ƒö¼Γöéaether-lab: 1491159025247715490
+≡ƒÆÄΓöécelestial-elite: 1491159045438967899
+≡ƒöæΓöéearly-access: 1491159049306116126
+≡ƒöè 6xualsadist's Channel: 1491167501055299628
+≡ƒÆ╗Γöédev-chat: 1491159027441467433
+≡ƒÄ╡Γöémusic-nexus: 1491159041106251937
+ΓÜÖ∩╕ÅΓöébot-control: 1491159058294771896
+≡ƒ¢í∩╕ÅΓöéstaff-nexus: 1491159052917669970
+≡ƒöè 6xualsadist's Channel: 1491167618491617321
+≡ƒÉ¢Γöébug-reports: 1491159017504899113
+≡ƒôïΓöémod-logs: 1491159055580922048
+≡ƒîîΓöéradiance-hangout: 1491159035389677640
+≡ƒîîΓöécelestial-gateway: 1491158996575588393
+≡ƒîáΓöéelite-lounge: 1491159046663704830
+≡ƒÄƒ∩╕ÅΓöésupport: 1491159016569835540
+≡ƒÜÇΓöégetting-started: 1491159014711623751
+Γ¥ôΓöéfaq: 1491159023838564534
+≡ƒôóΓöédev-stage: 1491159039856607444
+≡ƒôïΓöéchangelog: 1491159001860149310
+≡ƒöè 6xualsadist's Channel: 1491170172696924361
+≡ƒîƒΓöéwelcome: 1491158998362362007
+≡ƒ¢ï∩╕ÅΓöélounge: 1491159006872342540
+≡ƒº¬Γöébeta-access: 1491159030566092810
+≡ƒôªΓöéticket-archive: 1491159056889417750
+≡ƒÆñΓöéafk-realm: 1491159044151312444
+≡ƒöè 6xualsadist's Channel: 1491170106305413280
+≡ƒöè 6xualsadist's Channel: 1491173274422476940
+≡ƒû╝∩╕ÅΓöéserver-showcase: 1491159007698747473
+≡ƒöè 6xualsadist's Channel: 1491167420017148014
+≡ƒôóΓöéannouncements: 1491159000782213153
+≡ƒöè 6xualsadist's Channel: 1491170168485843105

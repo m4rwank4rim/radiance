@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-low": "#1b1b1e",
+                        "on-surface": "#e4e1e6",
+                        "error": "#ffb4ab",
+                        "on-background": "#e4e1e6",
+                        "background": "#131316",
+                        "on-error-container": "#ffdad6",
+                        "secondary-fixed": "#e1e0ff",
+                        "on-tertiary-container": "#5b0017",
+                        "on-secondary-container": "#b0b2ff",
+                        "on-primary-fixed-variant": "#5516be",
+                        "primary-fixed": "#e9ddff",
+                        "primary-container": "#a078ff",
+                        "outline": "#958ea0",
+                        "surface-bright": "#39393c",
+                        "on-surface-variant": "#cbc3d7",
+                        "on-secondary": "#1000a9",
+                        "on-tertiary-fixed": "#40000d",
+                        "surface-dim": "#131316",
+                        "secondary-container": "#3131c0",
+                        "on-secondary-fixed-variant": "#2f2ebe",
+                        "tertiary-fixed-dim": "#ffb2b7",
+                        "on-secondary-fixed": "#07006c",
+                        "inverse-primary": "#6d3bd7",
+                        "secondary": "#c0c1ff",
+                        "on-primary": "#3c0091",
+                        "surface-container-lowest": "#0e0e11",
+                        "surface-container-high": "#2a2a2d",
+                        "on-tertiary": "#67001b",
+                        "primary-fixed-dim": "#d0bcff",
+                        "surface": "#131316",
+                        "surface-container-highest": "#353438",
+                        "error-container": "#93000a",
+                        "tertiary-fixed": "#ffdadb",
+                        "surface-container": "#1f1f22",
+                        "primary": "#d0bcff",
+                        "tertiary-container": "#ff516a",
+                        "on-primary-container": "#340080",
+                        "inverse-surface": "#e4e1e6",
+                        "outline-variant": "#494454",
+                        "secondary-fixed-dim": "#c0c1ff",
+                        "surface-variant": "#353438",
+                        "on-primary-fixed": "#23005c",
+                        "surface-tint": "#d0bcff",
+                        "inverse-on-surface": "#303033",
+                        "on-error": "#690005",
+                        "on-tertiary-fixed-variant": "#92002a",
+                        "tertiary": "#ffb2b7"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(31, 31, 34, 0.4);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+        }
+        .hero-gradient {
+            background: radial-gradient(circle at 50% 50%, rgba(208, 188, 255, 0.1) 0%, rgba(19, 19, 22, 0) 70%);
+        }
+        .btn-gradient {
+            background: linear-gradient(135deg, #d0bcff 0%, #a078ff 100%);
+        }
+        .plan-card-hover:hover {
+            transform: translateY(-8px);
+            border-color: rgba(208, 188, 255, 0.4);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface selection:bg-primary selection:text-on-primary-container overflow-x-hidden">
+<!-- TopNavBar Navigation Shell -->
+<nav class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-[#131316]/80 backdrop-blur-xl font-['Inter'] tracking-tight border-b border-white/5">
+<div class="flex justify-between items-center px-8 h-20 max-w-7xl mx-auto">
+<div class="text-xl font-bold tracking-tighter text-white flex items-center">
+<span class="w-8 h-8 bg-primary rounded-lg mr-2 flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary text-xl">auto_awesome</span>
+</span>
+                Radiance
+            </div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-[#cbc3d7] hover:text-white transition-colors duration-300" href="#features">Features</a>
+<a class="text-[#cbc3d7] hover:text-white transition-colors duration-300" href="#pricing">Pricing</a>
+<a class="text-[#cbc3d7] hover:text-white transition-colors duration-300" href="#">Documentation</a>
+<a class="text-[#cbc3d7] hover:text-white transition-colors duration-300" href="#">Dashboard</a>
+</div>
+<div class="flex items-center space-x-6">
+<button class="material-symbols-outlined text-[#cbc3d7] hover:text-white transition-colors">account_circle</button>
+<button class="bg-[#d0bcff] text-[#340080] px-5 py-2 rounded-full font-semibold text-sm hover:scale-105 transition-transform">Get Started</button>
+</div>
+</div>
+</nav>
+<main class="relative">
+<!-- Hero Background Decoration -->
+<div class="absolute inset-0 hero-gradient pointer-events-none -z-10"></div>
+<div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary/5 blur-[120px] rounded-full pointer-events-none"></div>
+<div class="absolute bottom-[20%] right-[-5%] w-[30%] h-[30%] bg-secondary/5 blur-[100px] rounded-full pointer-events-none"></div>
+<!-- Hero Section -->
+<section class="relative pt-48 pb-32 px-8 max-w-7xl mx-auto flex flex-col items-center text-center">
+<div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-surface-container-high border border-outline-variant/15 mb-8">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="text-xs font-label uppercase tracking-widest text-on-surface-variant">Version 4.0 is now live</span>
+</div>
+<h1 class="text-6xl md:text-8xl font-black tracking-tighter text-white mb-8 leading-[0.95]">
+                The Premier <br/><span class="text-primary italic">Discord Suite</span>
+</h1>
+<p class="max-w-2xl text-lg md:text-xl text-on-surface-variant leading-relaxed mb-12">
+                Elevate your community experience with industry-leading moderation, seamless music streaming, and advanced engagement tools. Professional grade control, simplified.
+            </p>
+<div class="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-6">
+<button class="btn-gradient text-on-primary-container font-bold px-10 py-5 rounded-xl shadow-2xl shadow-primary/20 hover:scale-[1.02] transition-transform flex items-center">
+                    Open Dashboard
+                    <span class="material-symbols-outlined ml-2">rocket_launch</span>
+</button>
+<button class="bg-surface-container-highest/50 backdrop-blur-md text-on-surface font-semibold px-10 py-5 rounded-xl border border-outline-variant/20 hover:bg-surface-container-highest transition-colors flex items-center">
+                    View Commands
+                    <span class="material-symbols-outlined ml-2">terminal</span>
+</button>
+</div>
+</section>
+<!-- Bento Grid Features (Existing) -->
+<section class="py-24 px-8 max-w-7xl mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-[300px]">
+<!-- Moderation Module (Large) -->
+<div class="md:col-span-8 bg-surface-container-low rounded-xl overflow-hidden group relative flex flex-col justify-end p-8">
+<div class="absolute inset-0 opacity-40 group-hover:opacity-60 transition-opacity">
+<img alt="Moderation" class="w-full h-full object-cover" data-alt="Dark aesthetic futuristic command center interface with glowing purple holographic data visualizations and abstract network connections." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBW8V2UmS1xsiQgEzre4Ywy-PXxjzE36WjNOt15kfihFrJjhUTteh48y-4UdjosWks3Z-TlhgyBmG7oojTmrlqGbDumivuD7g9mpimCVUrwILkZJckeG7qV3F4u0won70e00TS5kr1sZH1FHQq_SNuGEHQb6eLtZOMuqws7ekh0nr23nqJGPQt3yWMR3RZ51scWkaY0-_ZLbYBg49Fa2zuo5Y9qeYMkMUrUle7ouJIC_bIu-hNGR9Y7cCuxYl7fGecLEidRa2tUY48"/>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent"></div>
+<div class="relative z-10">
+<span class="text-primary font-label text-[10px] uppercase tracking-[0.2em] mb-2 block">Security First</span>
+<h3 class="text-3xl font-bold text-white mb-3">AI Moderation</h3>
+<p class="text-on-surface-variant max-w-md">Our neural network detects and neutralizes toxicity before it hits the chat. Intelligent, automated, and relentless.</p>
+</div>
+</div>
+<!-- Music Module (Vertical) -->
+<div class="md:col-span-4 bg-surface-container-low rounded-xl flex flex-col p-8 border border-outline-variant/10">
+<div class="mb-auto">
+<span class="material-symbols-outlined text-primary text-4xl mb-6" style="font-variation-settings: 'FILL' 1;">queue_music</span>
+<h3 class="text-2xl font-bold text-white mb-3">High-Fidelity Audio</h3>
+<p class="text-on-surface-variant text-sm">Experience crystal clear 320kbps audio with zero latency. Support for all major streaming platforms.</p>
+</div>
+<div class="mt-8 space-y-3">
+<div class="glass-panel p-4 rounded-lg flex items-center space-x-4">
+<div class="w-10 h-10 bg-primary/20 rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-xl">play_arrow</span>
+</div>
+<div>
+<div class="text-xs font-bold text-white">Midnight City</div>
+<div class="text-[10px] text-on-surface-variant">M83 — Radiance Player</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Leveling Module (Standard) -->
+<div class="md:col-span-4 bg-surface-container rounded-xl p-8 border border-outline-variant/10 relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-9xl">military_tech</span>
+</div>
+<h3 class="text-xl font-bold text-white mb-3">Global Leveling</h3>
+<p class="text-on-surface-variant text-sm mb-6">Gamify your community with customizable rank cards, role rewards, and competitive leaderboards.</p>
+<div class="flex items-end space-x-1 h-12">
+<div class="w-2 bg-primary/20 h-4 rounded-t"></div>
+<div class="w-2 bg-primary/40 h-8 rounded-t"></div>
+<div class="w-2 bg-primary h-12 rounded-t"></div>
+<div class="w-2 bg-primary/60 h-6 rounded-t"></div>
+<div class="w-2 bg-primary/30 h-10 rounded-t"></div>
+</div>
+</div>
+<!-- Custom Commands (Wide) -->
+<div class="md:col-span-8 bg-surface-container-high rounded-xl p-8 flex flex-col md:flex-row items-center gap-8 border border-outline-variant/10">
+<div class="flex-1">
+<h3 class="text-2xl font-bold text-white mb-3">No-Code Automations</h3>
+<p class="text-on-surface-variant text-sm">Create complex triggers and custom command chains without writing a single line of code. Drag, drop, deploy.</p>
+</div>
+<div class="flex-1 w-full bg-background rounded-lg p-4 font-mono text-[11px] text-[#cbc3d7] border border-outline-variant/10">
+<div class="flex space-x-2 mb-3">
+<div class="w-2 h-2 rounded-full bg-error/40"></div>
+<div class="w-2 h-2 rounded-full bg-primary/40"></div>
+<div class="w-2 h-2 rounded-full bg-secondary/40"></div>
+</div>
+<span class="text-primary">/create_command</span> name: "welcome"<br/>
+<span class="text-on-surface-variant">trigger:</span> user_join<br/>
+<span class="text-on-surface-variant">action:</span> send_embed<br/>
+<span class="text-on-surface-variant">message:</span> "Welcome to the future, {user}!"
+                    </div>
+</div>
+</div>
+</section>
+<!-- Detailed Features Section -->
+<section class="py-24 px-8 max-w-7xl mx-auto" id="features">
+<div class="text-center mb-20">
+<h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Master Every Interaction</h2>
+<p class="text-on-surface-variant text-lg max-w-2xl mx-auto">Deep-dive into the specialized modules designed to give you total control over your digital territory.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Advanced Moderation -->
+<div class="p-8 rounded-2xl bg-surface-container-low border border-outline-variant/15 hover:border-primary/40 transition-all group">
+<div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-primary text-3xl">verified_user</span>
+</div>
+<h3 class="text-2xl font-bold text-white mb-4">Advanced Moderation</h3>
+<p class="text-on-surface-variant leading-relaxed mb-6">AI-driven sentiment analysis, automated anti-raid protocols, and comprehensive log systems that track every action with surgical precision.</p>
+<ul class="space-y-3 text-sm text-[#cbc3d7]">
+<li class="flex items-center"><span class="material-symbols-outlined text-primary text-lg mr-2">check_circle</span> Auto-ban known malicious actors</li>
+<li class="flex items-center"><span class="material-symbols-outlined text-primary text-lg mr-2">check_circle</span> Real-time spam prevention</li>
+<li class="flex items-center"><span class="material-symbols-outlined text-primary text-lg mr-2">check_circle</span> Customizable appeal workflows</li>
+</ul>
+</div>
+<!-- Global Economy -->
+<div class="p-8 rounded-2xl bg-surface-container-low border border-outline-variant/15 hover:border-primary/40 transition-all group">
+<div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-primary text-3xl">payments</span>
+</div>
+<h3 class="text-2xl font-bold text-white mb-4">Global Economy</h3>
+<p class="text-on-surface-variant leading-relaxed mb-6">A unified cross-server currency system. Users can earn, trade, and spend rewards across the entire Radiance network.</p>
+<ul class="space-y-3 text-sm text-[#cbc3d7]">
+<li class="flex items-center"><span class="material-symbols-outlined text-primary text-lg mr-2">check_circle</span> Secure peer-to-peer trading</li>
+<li class="flex items-center"><span class="material-symbols-outlined text-primary text-lg mr-2">check_circle</span> Dynamic server marketplaces</li>
+<li class="flex items-center"><span class="material-symbols-outlined text-primary text-lg mr-2">check_circle</span> Monthly global tournaments</li>
+</ul>
+</div>
+<!-- Custom Commands -->
+<div class="p-8 rounded-2xl bg-surface-container-low border border-outline-variant/15 hover:border-primary/40 transition-all group">
+<div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-primary text-3xl">code_blocks</span>
+</div>
+<h3 class="text-2xl font-bold text-white mb-4">Custom Commands</h3>
+<p class="text-on-surface-variant leading-relaxed mb-6">Unleash powerful automation with our visual logic builder. Create scripts that react to any Discord event automatically.</p>
+<ul class="space-y-3 text-sm text-[#cbc3d7]">
+<li class="flex items-center"><span class="material-symbols-outlined text-primary text-lg mr-2">check_circle</span> Drag-and-drop logic flow</li>
+<li class="flex items-center"><span class="material-symbols-outlined text-primary text-lg mr-2">check_circle</span> API integration support</li>
+<li class="flex items-center"><span class="material-symbols-outlined text-primary text-lg mr-2">check_circle</span> Conditional role assignment</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- Dynamic Statistics -->
+<section class="py-24 px-8 bg-surface-container-lowest">
+<div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
+<div>
+<div class="text-4xl md:text-5xl font-black text-white mb-2">4.2M</div>
+<div class="text-xs uppercase tracking-[0.2em] text-on-surface-variant">Active Servers</div>
+</div>
+<div>
+<div class="text-4xl md:text-5xl font-black text-white mb-2">99.9%</div>
+<div class="text-xs uppercase tracking-[0.2em] text-on-surface-variant">Uptime SLA</div>
+</div>
+<div>
+<div class="text-4xl md:text-5xl font-black text-white mb-2">150M</div>
+<div class="text-xs uppercase tracking-[0.2em] text-on-surface-variant">Weekly Users</div>
+</div>
+<div>
+<div class="text-4xl md:text-5xl font-black text-white mb-2">24/7</div>
+<div class="text-xs uppercase tracking-[0.2em] text-on-surface-variant">Expert Support</div>
+</div>
+</div>
+</section>
+<!-- Pricing Section -->
+<section class="py-32 px-8 max-w-7xl mx-auto" id="pricing">
+<div class="text-center mb-20">
+<h2 class="text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">Simple, Transparent Pricing</h2>
+<p class="text-on-surface-variant text-lg">Choose the tier that fits your community size and goals.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Starter -->
+<div class="p-10 rounded-3xl bg-surface-container-low border border-outline-variant/15 flex flex-col plan-card-hover transition-all duration-300">
+<div class="mb-8">
+<h3 class="text-xl font-bold text-white mb-2">Starter</h3>
+<div class="flex items-baseline">
+<span class="text-4xl font-black text-white">$0</span>
+<span class="text-on-surface-variant ml-2 text-sm">/forever</span>
+</div>
+</div>
+<p class="text-on-surface-variant text-sm mb-8 leading-relaxed">Perfect for getting your community off the ground with essential tools.</p>
+<ul class="space-y-4 mb-10 text-sm flex-grow">
+<li class="flex items-center text-[#cbc3d7]"><span class="material-symbols-outlined text-primary text-lg mr-3">check</span> Standard Moderation</li>
+<li class="flex items-center text-[#cbc3d7]"><span class="material-symbols-outlined text-primary text-lg mr-3">check</span> Basic Leveling System</li>
+<li class="flex items-center text-[#cbc3d7]"><span class="material-symbols-outlined text-primary text-lg mr-3">check</span> 5 Custom Commands</li>
+<li class="flex items-center text-[#494454]"><span class="material-symbols-outlined text-lg mr-3">close</span> High-Fidelity Audio</li>
+</ul>
+<button class="w-full py-4 px-6 rounded-xl border border-outline text-on-surface font-bold hover:bg-surface-container-highest transition-colors">Start for Free</button>
+</div>
+<!-- Pro -->
+<div class="p-10 rounded-3xl bg-surface-container-high border-2 border-primary relative flex flex-col plan-card-hover transition-all duration-300">
+<div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-primary text-on-primary font-bold text-[10px] uppercase tracking-widest px-4 py-1.5 rounded-full">Best Value</div>
+<div class="mb-8">
+<h3 class="text-xl font-bold text-white mb-2">Pro</h3>
+<div class="flex items-baseline">
+<span class="text-4xl font-black text-white">$9.99</span>
+<span class="text-on-surface-variant ml-2 text-sm">/month</span>
+</div>
+</div>
+<p class="text-on-surface-variant text-sm mb-8 leading-relaxed">Everything you need to manage a growing, professional community.</p>
+<ul class="space-y-4 mb-10 text-sm flex-grow">
+<li class="flex items-center text-[#cbc3d7]"><span class="material-symbols-outlined text-primary text-lg mr-3">check</span> AI-Powered Moderation</li>
+<li class="flex items-center text-[#cbc3d7]"><span class="material-symbols-outlined text-primary text-lg mr-3">check</span> Full Economy Suite</li>
+<li class="flex items-center text-[#cbc3d7]"><span class="material-symbols-outlined text-primary text-lg mr-3">check</span> Unlimited Custom Commands</li>
+<li class="flex items-center text-[#cbc3d7]"><span class="material-symbols-outlined text-primary text-lg mr-3">check</span> 320kbps Music Player</li>
+<li class="flex items-center text-[#cbc3d7]"><span class="material-symbols-outlined text-primary text-lg mr-3">check</span> Priority Discord Support</li>
+</ul>
+<button class="w-full py-4 px-6 rounded-xl btn-gradient text-on-primary-container font-bold shadow-xl shadow-primary/20 hover:scale-[1.03] transition-transform">Upgrade to Pro</button>
+</div>
+<!-- Enterprise -->
+<div class="p-10 rounded-3xl bg-surface-container-low border border-outline-variant/15 flex flex-col plan-card-hover transition-all duration-300">
+<div class="mb-8">
+<h3 class="text-xl font-bold text-white mb-2">Enterprise</h3>
+<div class="flex items-baseline">
+<span class="text-4xl font-black text-white">Custom</span>
+</div>
+</div>
+<p class="text-on-surface-variant text-sm mb-8 leading-relaxed">Dedicated infrastructure and white-labeling for the world's largest servers.</p>
+<ul class="space-y-4 mb-10 text-sm flex-grow">
+<li class="flex items-center text-[#cbc3d7]"><span class="material-symbols-outlined text-primary text-lg mr-3">check</span> Custom Bot Branding</li>
+<li class="flex items-center text-[#cbc3d7]"><span class="material-symbols-outlined text-primary text-lg mr-3">check</span> Dedicated Server Instance</li>
+<li class="flex items-center text-[#cbc3d7]"><span class="material-symbols-outlined text-primary text-lg mr-3">check</span> 99.9% Uptime Guarantee</li>
+<li class="flex items-center text-[#cbc3d7]"><span class="material-symbols-outlined text-primary text-lg mr-3">check</span> Account Manager</li>
+</ul>
+<button class="w-full py-4 px-6 rounded-xl border border-outline text-on-surface font-bold hover:bg-surface-container-highest transition-colors">Contact Sales</button>
+</div>
+</div>
+</section>
+<!-- FAQ Section -->
+<section class="py-24 px-8 max-w-4xl mx-auto">
+<div class="text-center mb-16">
+<h2 class="text-3xl font-bold text-white mb-4">Frequently Asked Questions</h2>
+</div>
+<div class="space-y-4">
+<div class="bg-surface-container-low border border-outline-variant/10 rounded-2xl p-6">
+<h4 class="text-white font-bold mb-2 flex justify-between items-center">
+                        Is Radiance easy to set up?
+                        <span class="material-symbols-outlined text-primary">expand_more</span>
+</h4>
+<p class="text-on-surface-variant text-sm">Absolutely. Most servers are up and running in less than 2 minutes. Our dashboard guides you through the entire configuration process.</p>
+</div>
+<div class="bg-surface-container-low border border-outline-variant/10 rounded-2xl p-6">
+<h4 class="text-white font-bold mb-2 flex justify-between items-center">
+                        Can I move my data from another bot?
+                        <span class="material-symbols-outlined text-primary">expand_more</span>
+</h4>
+<p class="text-on-surface-variant text-sm">Yes, we support data migration for leveling and economy from most major Discord bots. Contact our support team for specialized assistance.</p>
+</div>
+<div class="bg-surface-container-low border border-outline-variant/10 rounded-2xl p-6">
+<h4 class="text-white font-bold mb-2 flex justify-between items-center">
+                        Is the music player really 320kbps?
+                        <span class="material-symbols-outlined text-primary">expand_more</span>
+</h4>
+<p class="text-on-surface-variant text-sm">On our Pro and Enterprise tiers, we use high-bitrate streaming nodes to ensure the highest possible audio fidelity available on Discord.</p>
+</div>
+<div class="bg-surface-container-low border border-outline-variant/10 rounded-2xl p-6">
+<h4 class="text-white font-bold mb-2 flex justify-between items-center">
+                        What happens if the bot goes offline?
+                        <span class="material-symbols-outlined text-primary">expand_more</span>
+</h4>
+<p class="text-on-surface-variant text-sm">We maintain a 99.9% uptime. In the rare event of a maintenance window, all data is safely cached and synced once back online.</p>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-32 px-8 max-w-5xl mx-auto text-center">
+<div class="glass-panel p-16 rounded-[2rem] border border-outline-variant/15 relative overflow-hidden">
+<div class="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-64 bg-primary blur-[120px] opacity-20 pointer-events-none"></div>
+<h2 class="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight">Ready to transform your server?</h2>
+<p class="text-on-surface-variant mb-10 text-lg">Join thousands of world-class communities powered by Radiance.</p>
+<div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+<button class="bg-white text-background font-bold px-8 py-4 rounded-xl hover:scale-105 transition-transform">Add to Discord</button>
+<button class="border border-outline text-on-surface font-bold px-8 py-4 rounded-xl hover:bg-surface-container-highest transition-colors">Contact Enterprise</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-white/5 font-['Inter'] text-sm">
+<div class="max-w-7xl mx-auto px-8 pt-20 pb-12">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+<div class="col-span-1 md:col-span-1">
+<div class="text-xl font-bold text-white mb-6 flex items-center">
+<span class="w-6 h-6 bg-primary rounded mr-2 flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary text-sm">auto_awesome</span>
+</span>
+                        Radiance
+                    </div>
+<p class="text-[#cbc3d7] text-xs leading-relaxed mb-6">The world's most advanced management suite for Discord communities. Precision engineered for the elite.</p>
+<div class="flex space-x-4">
+<a class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface-variant hover:text-white transition-colors" href="#">
+<svg class="w-4 h-4 fill-current" viewbox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path></svg>
+</a>
+<a class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface-variant hover:text-white transition-colors" href="#">
+<svg class="w-4 h-4 fill-current" viewbox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg>
+</a>
+</div>
+</div>
+<div>
+<h4 class="text-white font-bold mb-6">Product</h4>
+<ul class="space-y-4 text-xs text-[#cbc3d7]">
+<li><a class="hover:text-primary transition-colors" href="#">Features</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Pricing</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Integrations</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Changelog</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Status</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-bold mb-6">Resources</h4>
+<ul class="space-y-4 text-xs text-[#cbc3d7]">
+<li><a class="hover:text-primary transition-colors" href="#">Documentation</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Help Center</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">API Reference</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Community Forum</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Server List</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-bold mb-6">Legal</h4>
+<ul class="space-y-4 text-xs text-[#cbc3d7]">
+<li><a class="hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Terms of Service</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Cookie Policy</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">GDPR Compliance</a></li>
+</ul>
+</div>
+</div>
+<div class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
+<div class="text-[#494454] text-[10px] uppercase tracking-widest">
+                    © 2024 Radiance Suite. All rights reserved.
+                </div>
+<div class="flex items-center text-[#494454] text-[10px] uppercase tracking-widest">
+                    Built with <span class="material-symbols-outlined text-[10px] text-error mx-1">favorite</span> for the community
+                </div>
+</div>
+</div>
+</footer>
+</body></html>

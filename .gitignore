@@ -1,0 +1,37 @@
+# Dependencies
+node_modules/
+
+# Build output
+build/
+dist/
+coverage/
+
+# Secrets / local environment
+.env
+.env.*
+!.env.example
+
+# Python (kept for any tooling/scripts in this repo)
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.python-version
+
+# Local databases
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+*.sqlite
+*.sqlite3
+
+# Logs and OS cruft
+*.log
+logs/
+npm-debug.log*
+.DS_Store
+Thumbs.db
+
+# Local uploads / scratch
+.uploads/

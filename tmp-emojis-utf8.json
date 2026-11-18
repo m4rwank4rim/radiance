@@ -1,0 +1,20 @@
+Γùç injected env (9) from .env // tip: Γîÿ suppress logs { quiet: true }
+Γùç injected env (0) from .env // tip: Γîÿ multiple files { path: ['.env.local', '.env'] }
+Γùç injected env (0) from .env // tip: Γîÿ custom filepath { path: '/custom/path/.env' }
+{
+  "activities": "<:activities:1491019213953957888>",
+  "camera": "<:camera:1491019253334409286>",
+  "claim": "<:claim:1491019282170249348>",
+  "hide": "<:hide:1491019317305802882>",
+  "info": "<:info:1491019345713692805>",
+  "invite": "<:invite:1491019376571318373>",
+  "kick": "<:kick:1491019404459376701>",
+  "limit": "<:limit:1491019439859302420>",
+  "lock": "<:lock:1491019472016900128>",
+  "unlock": "<:unlock:1491019728599126076>",
+  "rename": "<:rename:1491019634823008296>",
+  "music": "<:music:1491019524940496977>",
+  "perms": "<:perms:1491019592884293722>",
+  "settings": "<:settings:1491019663906181280>",
+  "show": "<:show:1491019697871913122>"
+}

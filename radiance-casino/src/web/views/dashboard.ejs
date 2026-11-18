@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penthouse | Servers</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body class="bg-light">
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <a href="/" class="sidebar-brand text-decoration-none">
+                <img src="/img/logo.png" alt="Penthouse" class="rounded">
+            </a>
+
+            <div class="sidebar-section-label">Homepage</div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="/dashboard" class="nav-link active">
+                        <i class="fa-solid fa-house"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+            </ul>
+
+
+
+            <div class="sidebar-footer">
+                <div class="user-profile mb-3">
+                    <img src="https://cdn.discordapp.com/embed/avatars/0.png" class="user-avatar" alt="User">
+                    <div class="user-info text-start">
+                        <div class="fw-bold text-dark small">
+                            <%= user.username %>
+                        </div>
+                        <div class="text-secondary" style="font-size: 0.7rem;">Administrator</div>
+                    </div>
+                </div>
+                <a href="/logout" class="nav-link text-danger p-0">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+
+            <div class="mb-5">
+                <div class="text-secondary small mb-1">Sunday, Mar 15, 2026</div>
+                <h2 class="fw-bold text-dark">Good morning, <%= user.username %>!</h2>
+            </div>
+
+            <div class="row g-4 mb-5">
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-title text-main">
+                            Total Servers
+                            <i class="fa-solid fa-server text-secondary"></i>
+                        </div>
+                        <div class="stat-value">
+                            <%= guilds.length %>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card h-100" style="position: relative; overflow: hidden;">
+                        <div class="card-title text-main">
+                            Active Players
+                            <i class="fa-solid fa-users text-secondary"></i>
+                        </div>
+                        <div class="stat-value">
+                            <%= metrics.activePlayers.toLocaleString() %>
+                        </div>
+                        <i class="fa-solid fa-users text-primary position-absolute"
+                            style="font-size: 6rem; opacity: 0.05; right: -20px; bottom: -20px;"></i>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card h-100" style="position: relative; overflow: hidden;">
+                        <div class="card-title text-main">
+                            Total Volume
+                            <i class="fa-solid fa-coins text-secondary"></i>
+                        </div>
+                        <div class="stat-value" style="color: var(--aurora-primary);">
+                            <%= metrics.totalVolume %>
+                        </div>
+                        <i class="fa-solid fa-coins text-primary position-absolute"
+                            style="font-size: 6rem; opacity: 0.05; right: -20px; bottom: -20px;"></i>
+                    </div>
+                </div>
+            </div>
+
+            <h4 class="fw-bold mb-4 text-dark">Manage Servers</h4>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4">
+                <% if (guilds.length> 0) { %>
+                    <% guilds.forEach(guild=> { %>
+                        <div class="col">
+                            <div class="card h-100">
+                                <div class="d-flex align-items-center gap-3 mb-4">
+                                    <% if (guild.icon) { %>
+                                        <img src="https://cdn.discordapp.com/icons/<%= guild.id %>/<%= guild.icon %>.png"
+                                            class="user-avatar shadow-sm" style="width: 50px; height: 50px;"
+                                            alt="<%= guild.name %>">
+                                        <% } else { %>
+                                            <div class="bg-primary bg-opacity-10 text-primary rounded-4 d-flex align-items-center justify-content-center"
+                                                style="width: 50px; height: 50px;">
+                                                <span class="h5 mb-0 fw-bold">
+                                                    <%= guild.name.charAt(0) %>
+                                                </span>
+                                            </div>
+                                            <% } %>
+                                                <div>
+                                                    <h5 class="mb-0 fw-bold text-main">
+                                                        <%= guild.name %>
+                                                    </h5>
+                                                    <span class="badge badge-success p-0 mt-1"
+                                                        style="font-size: 0.7rem;">
+                                                        <i class="fa-solid fa-circle small me-1"></i> Bot Active
+                                                    </span>
+                                                </div>
+                                </div>
+                                <div class="mt-auto">
+                                    <a href="/guild/<%= guild.id %>" class="btn btn-outline w-100 py-2">
+                                        Configure <i class="fa-solid fa-arrow-right ms-2 small"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <% }); %>
+
+                            <!-- Invite Bot Card -->
+                            <div class="col">
+                                <div class="card h-100">
+                                    <div class="d-flex align-items-center gap-3 mb-4">
+                                        <div class="bg-primary bg-opacity-10 text-primary rounded-4 d-flex align-items-center justify-content-center"
+                                            style="width: 50px; height: 50px;">
+                                            <i class="fa-solid fa-plus h5 mb-0"></i>
+                                        </div>
+                                        <div>
+                                            <h5 class="mb-0 fw-bold text-main">
+                                                Add Server
+                                            </h5>
+                                            <span class="text-secondary small">
+                                                Invite to a new server
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="mt-auto">
+                                        <a href="https://discord.com/oauth2/authorize?client_id=<%= process.env.CLIENT_ID %>&permissions=8&scope=bot%20applications.commands"
+                                            target="_blank" class="btn btn-primary w-100 py-2">
+                                            Invite Bot <i class="fa-solid fa-arrow-up-right-from-square ms-2 small"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <% } else { %>
+                                <div class="col-12">
+                                    <div class="card text-center py-5 shadow-sm border-0 rounded-4 bg-white">
+                                        <i class="fa-solid fa-robot display-1 mb-4 text-secondary"
+                                            style="opacity: 0.2;"></i>
+                                        <h3 class="fw-bold text-dark">No manageable servers</h3>
+                                        <p class="text-secondary">Invite Penthouse to your server to begin
+                                            configuration.</p>
+                                        <a href="https://discord.com/oauth2/authorize?client_id=<%= process.env.CLIENT_ID %>&permissions=8&scope=bot%20applications.commands"
+                                            target="_blank" class="btn btn-primary mt-3 rounded-pill px-4">
+                                            Invite Bot Now
+                                        </a>
+                                    </div>
+                                </div>
+                                <% } %>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

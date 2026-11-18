@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-low": "#1b1b1e",
+                        "on-surface": "#e4e1e6",
+                        "error": "#ffb4ab",
+                        "on-background": "#e4e1e6",
+                        "background": "#131316",
+                        "on-error-container": "#ffdad6",
+                        "secondary-fixed": "#e1e0ff",
+                        "on-tertiary-container": "#5b0017",
+                        "on-secondary-container": "#b0b2ff",
+                        "on-primary-fixed-variant": "#5516be",
+                        "primary-fixed": "#e9ddff",
+                        "primary-container": "#a078ff",
+                        "outline": "#958ea0",
+                        "surface-bright": "#39393c",
+                        "on-surface-variant": "#cbc3d7",
+                        "on-secondary": "#1000a9",
+                        "on-tertiary-fixed": "#40000d",
+                        "surface-dim": "#131316",
+                        "secondary-container": "#3131c0",
+                        "on-secondary-fixed-variant": "#2f2ebe",
+                        "tertiary-fixed-dim": "#ffb2b7",
+                        "on-secondary-fixed": "#07006c",
+                        "inverse-primary": "#6d3bd7",
+                        "secondary": "#c0c1ff",
+                        "on-primary": "#3c0091",
+                        "surface-container-lowest": "#0e0e11",
+                        "surface-container-high": "#2a2a2d",
+                        "on-tertiary": "#67001b",
+                        "primary-fixed-dim": "#d0bcff",
+                        "surface": "#131316",
+                        "surface-container-highest": "#353438",
+                        "error-container": "#93000a",
+                        "tertiary-fixed": "#ffdadb",
+                        "surface-container": "#1f1f22",
+                        "primary": "#d0bcff",
+                        "tertiary-container": "#ff516a",
+                        "on-primary-container": "#340080",
+                        "inverse-surface": "#e4e1e6",
+                        "outline-variant": "#494454",
+                        "secondary-fixed-dim": "#c0c1ff",
+                        "surface-variant": "#353438",
+                        "on-primary-fixed": "#23005c",
+                        "surface-tint": "#d0bcff",
+                        "inverse-on-surface": "#303033",
+                        "on-error": "#690005",
+                        "on-tertiary-fixed-variant": "#92002a",
+                        "tertiary": "#ffb2b7"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
+        .glass-card {
+            background: rgba(31, 31, 34, 0.6);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+        }
+        .primary-gradient {
+            background: linear-gradient(135deg, #d0bcff 0%, #a078ff 100%);
+        }
+        .chart-glow {
+            filter: drop-shadow(0 0 12px rgba(208, 188, 255, 0.3));
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background selection:bg-primary-container selection:text-on-primary-container">
+<div class="flex min-h-screen">
+<!-- SideNavBar -->
+<aside class="flex flex-col h-screen sticky top-0 p-6 h-full w-64 border-r-0 bg-[#1b1b1e] dark:bg-[#1b1b1e] backdrop-blur-2xl shadow-[32px_0_64px_rgba(139,92,246,0.06)] z-50">
+<div class="flex items-center gap-3 mb-10 px-2">
+<div class="w-8 h-8 rounded-lg primary-gradient flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary text-lg" style="font-variation-settings: 'FILL' 1;">bolt</span>
+</div>
+<div>
+<h1 class="text-lg font-black text-[#d0bcff] leading-none">Radiance Suite</h1>
+<p class="font-['Inter'] uppercase tracking-widest text-[10px] text-[#cbc3d7] mt-1">Premium Management</p>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-[#d0bcff] bg-[#353438] rounded-lg transition-all font-['Inter'] uppercase tracking-widest text-[10px] font-semibold" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+                    Overview
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#cbc3d7] hover:bg-[#1f1f22] transition-all font-['Inter'] uppercase tracking-widest text-[10px]" href="#">
+<span class="material-symbols-outlined">security</span>
+                    Moderation
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#cbc3d7] hover:bg-[#1f1f22] transition-all font-['Inter'] uppercase tracking-widest text-[10px]" href="#">
+<span class="material-symbols-outlined">terminal</span>
+                    Custom Commands
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#cbc3d7] hover:bg-[#1f1f22] transition-all font-['Inter'] uppercase tracking-widest text-[10px]" href="#">
+<span class="material-symbols-outlined">queue_music</span>
+                    Music
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#cbc3d7] hover:bg-[#1f1f22] transition-all font-['Inter'] uppercase tracking-widest text-[10px]" href="#">
+<span class="material-symbols-outlined">settings</span>
+                    Settings
+                </a>
+</nav>
+<div class="mt-auto space-y-6">
+<div class="bg-[#1f1f22] p-4 rounded-xl">
+<p class="text-[10px] font-bold text-[#d0bcff] uppercase tracking-wider mb-2">Pro Plan Active</p>
+<button class="w-full py-2 primary-gradient rounded-lg text-on-primary text-xs font-bold transition-transform hover:scale-102 active:scale-95">
+                        Upgrade Pro
+                    </button>
+</div>
+<div class="space-y-1">
+<a class="flex items-center gap-3 px-4 py-2 text-[#cbc3d7] hover:text-white transition-colors text-xs" href="#">
+<span class="material-symbols-outlined text-sm">description</span>
+                        Docs
+                    </a>
+<a class="flex items-center gap-3 px-4 py-2 text-[#cbc3d7] hover:text-white transition-colors text-xs" href="#">
+<span class="material-symbols-outlined text-sm">help</span>
+                        Support
+                    </a>
+</div>
+</div>
+</aside>
+<!-- Main Canvas -->
+<main class="flex-1 p-8 overflow-y-auto">
+<!-- Header -->
+<header class="flex justify-between items-end mb-10">
+<div>
+<h2 class="text-4xl font-bold tracking-tighter text-on-surface mb-1">Overview</h2>
+<p class="text-on-surface-variant text-sm tracking-tight">Real-time server metrics and system health for Radiance Pro.</p>
+</div>
+<div class="flex gap-4">
+<button class="flex items-center gap-2 px-4 py-2 bg-surface-container hover:bg-surface-container-high rounded-lg text-on-surface transition-all text-xs font-medium">
+<span class="material-symbols-outlined text-sm">download</span>
+                        Export Data
+                    </button>
+<button class="flex items-center gap-2 px-4 py-2 primary-gradient rounded-lg text-on-primary transition-all text-xs font-bold shadow-lg shadow-primary/10">
+<span class="material-symbols-outlined text-sm">refresh</span>
+                        Sync Dashboard
+                    </button>
+</div>
+</header>
+<!-- Top Cards Bento -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+<!-- Total Members -->
+<div class="glass-card p-6 rounded-xl border border-outline-variant/10 relative overflow-hidden group">
+<div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary/30 to-transparent"></div>
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-primary-fixed-dim p-2 bg-primary/10 rounded-lg">group</span>
+<span class="text-xs font-bold text-tertiary">+12.5%</span>
+</div>
+<p class="text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-1">Total Members</p>
+<h3 class="text-3xl font-black tracking-tighter text-on-surface">42,891</h3>
+</div>
+<!-- Messages -->
+<div class="glass-card p-6 rounded-xl border border-outline-variant/10 group">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-secondary p-2 bg-secondary/10 rounded-lg">forum</span>
+<span class="text-xs font-bold text-tertiary">+8.2%</span>
+</div>
+<p class="text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-1">Messages (24h)</p>
+<h3 class="text-3xl font-black tracking-tighter text-on-surface">156.4K</h3>
+</div>
+<!-- Commands Used -->
+<div class="glass-card p-6 rounded-xl border border-outline-variant/10 group">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-tertiary-fixed-dim p-2 bg-tertiary/10 rounded-lg">terminal</span>
+<span class="text-xs font-bold text-on-surface-variant">Stable</span>
+</div>
+<p class="text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-1">Commands Used</p>
+<h3 class="text-3xl font-black tracking-tighter text-on-surface">8.2K</h3>
+</div>
+<!-- Active in Voice -->
+<div class="glass-card p-6 rounded-xl border border-outline-variant/10 group">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-primary-container p-2 bg-primary-container/10 rounded-lg">keyboard_voice</span>
+<span class="text-xs font-bold text-tertiary">+22.1%</span>
+</div>
+<p class="text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-1">Active in Voice</p>
+<h3 class="text-3xl font-black tracking-tighter text-on-surface">1,402</h3>
+</div>
+</div>
+<!-- Main Content Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Member Growth Area Chart (2/3) -->
+<div class="lg:col-span-2 glass-card rounded-xl border border-outline-variant/10 overflow-hidden flex flex-col">
+<div class="p-8 pb-0">
+<div class="flex justify-between items-center mb-8">
+<div>
+<h4 class="text-xl font-bold tracking-tight text-on-surface">Member Growth</h4>
+<p class="text-xs text-on-surface-variant">Activity over the last 30 days</p>
+</div>
+<div class="flex gap-2 bg-surface-container-low p-1 rounded-lg">
+<button class="px-3 py-1 text-[10px] font-bold bg-surface-container-highest text-primary rounded">30D</button>
+<button class="px-3 py-1 text-[10px] font-bold text-on-surface-variant hover:text-on-surface">90D</button>
+<button class="px-3 py-1 text-[10px] font-bold text-on-surface-variant hover:text-on-surface">1Y</button>
+</div>
+</div>
+</div>
+<!-- Visual Chart Simulation -->
+<div class="flex-1 relative mt-4 h-64 px-8">
+<svg class="w-full h-full chart-glow" preserveaspectratio="none" viewbox="0 0 800 200">
+<defs>
+<lineargradient id="chartGradient" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#d0bcff" stop-opacity="0.4"></stop>
+<stop offset="100%" stop-color="#d0bcff" stop-opacity="0"></stop>
+</lineargradient>
+</defs>
+<path d="M0,180 Q100,160 200,170 T400,140 T600,120 T800,80 L800,200 L0,200 Z" fill="url(#chartGradient)"></path>
+<path d="M0,180 Q100,160 200,170 T400,140 T600,120 T800,80" fill="none" stroke="#d0bcff" stroke-linecap="round" stroke-width="4"></path>
+<!-- Data Points -->
+<circle cx="200" cy="170" fill="#d0bcff" r="4"></circle>
+<circle cx="400" cy="140" fill="#d0bcff" r="4"></circle>
+<circle cx="600" cy="120" fill="#d0bcff" r="4"></circle>
+<circle class="shadow-xl" cx="800" cy="80" fill="#ffffff" r="6"></circle>
+</svg>
+<div class="absolute inset-0 flex justify-between items-end pb-4 px-8 pointer-events-none">
+<span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-tighter">Apr 01</span>
+<span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-tighter">Apr 10</span>
+<span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-tighter">Apr 20</span>
+<span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-tighter">Today</span>
+</div>
+</div>
+</div>
+<!-- Side Data: System Status & Modules -->
+<div class="space-y-8">
+<!-- System Status -->
+<div class="glass-card p-6 rounded-xl border border-outline-variant/10">
+<h4 class="text-xs font-black uppercase tracking-widest text-on-surface-variant mb-6 flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_8px_#ffb2b7]"></span>
+                            System Status
+                        </h4>
+<div class="space-y-4">
+<div class="flex justify-between items-center p-3 rounded-lg bg-surface-container-low">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant text-sm">speed</span>
+<span class="text-xs font-medium text-on-surface">API Latency</span>
+</div>
+<span class="text-xs font-bold text-tertiary">24ms</span>
+</div>
+<div class="flex justify-between items-center p-3 rounded-lg bg-surface-container-low">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant text-sm">cloud_done</span>
+<span class="text-xs font-medium text-on-surface">Uptime</span>
+</div>
+<span class="text-xs font-bold text-primary">99.99%</span>
+</div>
+<div class="flex justify-between items-center p-3 rounded-lg bg-surface-container-low">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant text-sm">dns</span>
+<span class="text-xs font-medium text-on-surface">Voice Nodes</span>
+</div>
+<span class="text-xs font-bold text-on-surface">12 Active</span>
+</div>
+</div>
+</div>
+<!-- Active Modules -->
+<div class="glass-card p-6 rounded-xl border border-outline-variant/10">
+<h4 class="text-xs font-black uppercase tracking-widest text-on-surface-variant mb-6">Active Modules</h4>
+<div class="space-y-3">
+<!-- Module Item -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined text-sm">shield</span>
+</div>
+<span class="text-xs font-semibold">Auto-Mod</span>
+</div>
+<div class="w-10 h-5 bg-primary rounded-full relative p-1 cursor-pointer transition-colors">
+<div class="absolute right-1 top-1 w-3 h-3 bg-white rounded-full"></div>
+</div>
+</div>
+<!-- Module Item -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined text-sm">music_note</span>
+</div>
+<span class="text-xs font-semibold">Music Engine</span>
+</div>
+<div class="w-10 h-5 bg-primary rounded-full relative p-1 cursor-pointer transition-colors">
+<div class="absolute right-1 top-1 w-3 h-3 bg-white rounded-full"></div>
+</div>
+</div>
+<!-- Module Item -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined text-sm">auto_graph</span>
+</div>
+<span class="text-xs font-semibold">Leveling System</span>
+</div>
+<div class="w-10 h-5 bg-surface-container-highest rounded-full relative p-1 cursor-pointer transition-colors border border-outline-variant/20">
+<div class="absolute left-1 top-1 w-3 h-3 bg-outline rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Stats Row -->
+<footer class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8 items-center border-t border-outline-variant/10 pt-8">
+<div class="flex items-center gap-6">
+<div class="flex -space-x-3">
+<img alt="User 1" class="w-8 h-8 rounded-full border-2 border-background" data-alt="close-up portrait of a professional man with clean lighting on dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDw4Hj4LW-4lu_0aWUaAOBKHWb7wU-fcmmmBX-YkFO5SHLjLlJr2W5NCUrKuJbYA9gvzaV-ctH4f-HrtsZnXyKEQgY0wVHwZwDJyA2jcXEhTpOdr90g5LNzy4-8ISAVdkLDFEhlk0I06rY6xcnE6XDk0N3vZw9XNpk8XrFGeMkjRP-z3X_Ussr25sjsVTzcCdhstAuTkf2PsjMsZwDOZPkMrnC7sDaM-L_IAE21CsmQ1R4OvXlUm2rmR7rZg4HD0OJigHKgQm4wkks"/>
+<img alt="User 2" class="w-8 h-8 rounded-full border-2 border-background" data-alt="professional woman smiling with soft depth of field and warm studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbnp_FLIfv-x8doflxFWDSaodhEuz9DFdTUpYNvRbgBGeqMA2OAGqmR-XG_IuUz0tW-5ahgpwL2m-JYni8qOkJLi8LYOTr8xn44KykLBiHH8gt9XSFTdAgZkZW9MZHSf9hQr45k5iVocqdkfJORToU0ZvyF7Tevl_FB6nac5wUtUa9M7Ipo2pnFicJqI2pCOjZ-kcA9SxVIRwx4ghXE2IMb2p0V5v7UCA8AKveMuINEsfigHKd1sfMreh34n1eJv1VSnCCcWordco"/>
+<img alt="User 3" class="w-8 h-8 rounded-full border-2 border-background" data-alt="young man with neutral expression in modern editorial style lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCr823TcaDiDL3xNxIZZ9Fr-YkZnxD_c50lBCEdhzIVu5rMZUVboNc-3NY2Gf4-748HZVqwXj00to6oGCptVAsYRNlBgm_NoYsh7YGBDaPnlug8bOXemk00FUuJiDrlGs-ClxFKcgxVbp2AXXi4mf3X59EL0KCOjXwiVV4x6Z5E2WxHR5kGlGPhTtfMzhkkpfREXTauwCP9o2KbDIeQ6u1Jm2mh2XicSZDzDaiyjvw4Z6h833Lp9kf4t8wC56Ipaw2To6mG3Oz-jRM"/>
+<div class="w-8 h-8 rounded-full border-2 border-background bg-surface-container-highest flex items-center justify-center text-[10px] font-bold">+8</div>
+</div>
+<p class="text-xs text-on-surface-variant font-medium">Currently online staff managing the dashboard</p>
+</div>
+<div class="flex justify-end gap-12">
+<div class="text-right">
+<p class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest mb-1">Region</p>
+<p class="text-xs font-bold text-on-surface">US-EAST (N. Virginia)</p>
+</div>
+<div class="text-right">
+<p class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest mb-1">Last Deploy</p>
+<p class="text-xs font-bold text-on-surface">14 mins ago</p>
+</div>
+</div>
+</footer>
+</main>
+</div>
+</body></html>
