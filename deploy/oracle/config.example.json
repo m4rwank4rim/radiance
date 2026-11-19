@@ -1,0 +1,17 @@
+{
+  "region": "eu-frankfurt-1",
+  "tenancyOcid": "ocid1.tenancy.oc1..xxxx",
+  "userOcid": "ocid1.user.oc1..xxxx",
+  "fingerprint": "aa:bb:cc:dd:ee:ff:00:11:22:33:44:55:66:77:88:99",
+  "privateKeyPath": "oci_api_key.pem",
+  "compartmentOcid": "",
+  "subnetId": "",
+  "imageId": "",
+  "sshPublicKey": "ssh-rsa AAAA... you@host",
+  "displayName": "radiance",
+  "intervalSeconds": 60,
+  "shapeConfigs": [
+    { "ocpus": 2, "memoryInGBs": 12 },
+    { "ocpus": 1, "memoryInGBs": 6 }
+  ]
+}

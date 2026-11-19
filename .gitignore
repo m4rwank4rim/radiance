@@ -35,3 +35,7 @@ Thumbs.db
 
 # Local uploads / scratch
 .uploads/
+
+# Oracle deployment secrets
+deploy/oracle/config.json
+deploy/oracle/*.pem
