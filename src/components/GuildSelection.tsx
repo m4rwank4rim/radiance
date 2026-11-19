@@ -14,8 +14,25 @@ export default function GuildSelection() {
   const [isSyncing, setIsSyncing] = useState(false);
   const [syncResult, setSyncResult] = useState<string | null>(null);
 
-  // Read directly from Vite-injected env — no API call needed
-  const discordClientId = process.env.DISCORD_CLIENT_ID || null;
+  // The client ID is public, so fetch it at runtime. This keeps the bundle
+  // buildable without build-time env vars (Docker / CI / Spaces).
+  const [discordClientId, setDiscordClientId] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (discordClientId) return;
+    let cancelled = false;
+    fetch("/api/bot-config")
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data) => {
+        if (!cancelled && data?.discordClientId) {
+          setDiscordClientId(data.discordClientId);
+        }
+      })
+      .catch(() => {});
+    return () => {
+      cancelled = true;
+    };
+  }, [discordClientId]);
 
   useEffect(() => {
     const checkUser = async () => {
