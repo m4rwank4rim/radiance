@@ -71,3 +71,16 @@ The Express server in `server.ts` boots both the Discord bot and the dashboard, 
    interval 5 minutes. Free Render services sleep after ~15 minutes of inactivity, so the
    monitor doubles as the bot's keep-alive.
 
+## GitHub Actions (bot only, no payment method)
+
+`.github/workflows/discord-bot.yml` starts only the Discord client (no dashboard) and
+restarts it every 6 hours. Add these under **Settings > Secrets and variables > Actions**:
+
+`DISCORD_BOT_TOKEN`, `DISCORD_CLIENT_ID`, `VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY`,
+`SUPABASE_SERVICE_ROLE_KEY`, `GEMINI_API_KEY`, `GROQ_API_KEY`, `VIRUSTOTAL_API_KEY`.
+
+Limitations: a public repository is required for unmetered Actions minutes (private repos
+get ~33 hours/month); the bot is offline for a few minutes between 6-hour runs; scheduled
+workflows pause after 60 days without repository activity; and no inbound HTTP port is
+available, so the web dashboard and `/health` are not reachable.
+

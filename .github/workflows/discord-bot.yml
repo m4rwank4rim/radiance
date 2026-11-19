@@ -1,0 +1,71 @@
+name: Discord Bot
+
+on:
+  schedule:
+    # GitHub hard-kills any job at 6 hours, so start a fresh one every 6 hours.
+    - cron: "0 */6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# Never let two copies of the bot connect with the same token.
+concurrency:
+  group: discord-bot
+  cancel-in-progress: false
+
+jobs:
+  bot:
+    runs-on: ubuntu-latest
+    # Stop slightly before GitHub's 6-hour limit so the next run can start.
+    timeout-minutes: 355
+
+    env:
+      NODE_ENV: production
+      TZ: UTC
+      DISCORD_BOT_TOKEN: ${{ secrets.DISCORD_BOT_TOKEN }}
+      DISCORD_CLIENT_ID: ${{ secrets.DISCORD_CLIENT_ID }}
+      VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
+      VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
+      SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+      VIRUSTOTAL_API_KEY: ${{ secrets.VIRUSTOTAL_API_KEY }}
+
+    steps:
+      - name: Check required secret
+        run: |
+          if [ -z "$DISCORD_BOT_TOKEN" ]; then
+            echo "::error::DISCORD_BOT_TOKEN is missing. Add it under Settings > Secrets and variables > Actions."
+            exit 1
+          fi
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install canvas system libraries
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends libfontconfig1 fonts-dejavu-core
+
+      - name: Install dependencies
+        run: npm ci --omit=dev --no-audit --no-fund
+
+      - name: Run bot
+        run: |
+          set +e
+          for attempt in 1 2 3; do
+            echo "Starting bot (attempt $attempt)..."
+            npx tsx scripts/run-bot.ts
+            code=$?
+            echo "Bot exited with code $code; restarting in 30 seconds..."
+            sleep 30
+          done
+          echo "::error::The bot stayed offline after 3 attempts."
+          exit 1
