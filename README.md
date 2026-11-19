@@ -1,13 +1,3 @@
----
-title: Radiance Suite
-emoji: ✨
-colorFrom: indigo
-colorTo: purple
-sdk: docker
-app_port: 7860
-pinned: false
----
-
 <div align="center">
 <img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
 </div>
@@ -94,55 +84,21 @@ get ~33 hours/month); the bot is offline for a few minutes between 6-hour runs; 
 workflows pause after 60 days without repository activity; and no inbound HTTP port is
 available, so the web dashboard and `/health` are not reachable.
 
-## Hugging Face Spaces (bot + dashboard, free, no card)
+## Docker (self-host or any Docker host)
 
-HF's free **CPU Basic** hardware gives 2 vCPU / 16 GB RAM, which is enough for discord.js and
-the canvas rank-card renderer. `Dockerfile` runs `npm start`, so the bot and the Express
-dashboard share one container; `app_port` is 7860 (HF's default).
+`Dockerfile` builds the dashboard and runs `npm start` — bot, Express API and `/health` on
+port 7860.
 
-### 1. Create the Space
-
-1. https://huggingface.co/new-space → owner: you, name: `radiance`, SDK: **Docker**,
-   hardware: **CPU basic (free)**, visibility: public (free tier).
-2. Copy the Space id, e.g. `youruser/radiance`.
-
-### 2. Sync from GitHub (official `hub-sync` action)
-
-`.github/workflows/sync-to-hub.yml` mirrors `main` to the Space on every push.
-
-1. Create a **write** token: https://huggingface.co/settings/tokens → *New token* → role
-   `write`.
-2. GitHub repo → **Settings → Secrets and variables → Actions**:
-   - Secret `HF_TOKEN` = the token
-   - Variable `HF_SPACE_ID` = `youruser/radiance`
-3. **Actions → Sync to Hugging Face Hub → Run workflow**.
-
-The first Space build takes a few minutes (node-canvas compiles/copies native libs).
-
-### 3. Add the runtime secrets in the Space
-
-Space → **Settings → Variables and secrets → New secret** (same names as `.env.example`):
-
-`DISCORD_BOT_TOKEN`, `DISCORD_CLIENT_ID`, `DISCORD_CLIENT_SECRET`, `VITE_SUPABASE_URL`,
-`VITE_SUPABASE_ANON_KEY`, `SUPABASE_SERVICE_ROLE_KEY`, `GEMINI_API_KEY`, `GROQ_API_KEY`,
-`VIRUSTOTAL_API_KEY`, `APP_URL`.
-
-Set `APP_URL` to the Space URL:
-
-```
-https://youruser-radiance.hf.space
+```bash
+docker build -t radiance .
+docker run --env-file .env -p 7860:7860 radiance
 ```
 
-Then set Supabase **Site URL** to that origin and add
-`https://youruser-radiance.hf.space/auth/callback` to the redirect allow list, and restart
-the Space (Settings → *Restart this Space*) so the new secrets are picked up.
+Works on your own PC, a VPS, or any container host. Koyeb's free instance is 512 MB / 0.1
+vCPU and scales to zero after 1 h without HTTP traffic, so it is not a good fit for the
+canvas renderer.
 
-### Notes
-
-- Free Spaces sleep after 48 h **without traffic**. An UptimeRobot monitor on
-  `https://youruser-radiance.hf.space/health` every 5 minutes keeps it awake.
-- The dashboard is publicly reachable; there is no auth gate beyond Supabase.
-- If the Space logs `JavaScript heap out of memory`, raise
-  `NODE_OPTIONS=--max-old-space-size=4096` in the Space variables.
+> Hugging Face Spaces is no longer usable for free: Docker and Gradio Spaces now require a
+> paid plan (PRO / Team). Static Spaces are free but cannot run a bot or Express server.
 
 
